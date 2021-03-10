@@ -1,5 +1,9 @@
 import { Injectable } from "@angular/core";
-import { ActivatedRouteSnapshot, Resolve, RouterState } from "@angular/router";
+import {
+  ActivatedRouteSnapshot,
+  Resolve,
+  RouterStateSnapshot,
+} from "@angular/router";
 import { Observable } from "rxjs/Observable";
 import { ServersService } from "../servers.service";
 
@@ -15,7 +19,7 @@ export class ServerResolver implements Resolve<Server> {
 
   resolve(
     route: ActivatedRouteSnapshot,
-    state: RouterState
+    state: RouterStateSnapshot
   ): Observable<Server> | Promise<Server> | Server {
     return this.serversService.getServer(+route.params["id"]);
   }
