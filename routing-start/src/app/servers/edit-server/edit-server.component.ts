@@ -13,6 +13,7 @@ export class EditServerComponent implements OnInit {
   serverName = "";
   serverStatus = "";
   allowEdit = false;
+  changesSaved = false;
 
   constructor(
     private serversService: ServersService,
@@ -34,5 +35,6 @@ export class EditServerComponent implements OnInit {
       name: this.serverName,
       status: this.serverStatus,
     });
+    this.changesSaved = true;
   }
 }
